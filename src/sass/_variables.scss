@@ -1,0 +1,21 @@
+:root {
+    --primary-color: #1876f2;
+    --primary-text: #050505;
+    --secondary-text: #65676b;
+    --hover-color: rgba(68, 73, 80, 0.15);
+    --white-color: #fff;
+    --black-color: #000;
+    --text-color: #333;
+    --blue-link: #216fdb;
+    --hover-overlay: rgba(0, 0, 0, 0.08);
+
+    --bg-main: #fff;
+    --bg-second: #f0f2f5;
+}
+
+$header-height: 56px;
+
+$tablet-width: 1260px;
+$tablet-small-width: 1098px;
+$mobile-width: 900px;
+$mobile-small-width: 700px;

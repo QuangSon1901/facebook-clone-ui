@@ -1,0 +1,140 @@
+.header {
+    --search-height: 40px;
+    --search-border-radius: 92px;
+
+    width: 100%;
+    height: $header-height;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    box-shadow: 0px 1px 1px rgb(0 0 0 / 12%);
+    background-color: var(--bg-main);
+    z-index: 99;
+
+    &__inner {
+        width: inherit;
+        height: inherit;
+        padding: 0 1.6rem;
+        @include flex(center, space-between);
+
+        &__logo {
+            user-select: none;
+            display: block;
+            @include flex(center, center);
+            z-index: 999;
+        }
+
+        &__search {
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            height: $header-height;
+            @include flex(center, center);
+            z-index: 99;
+
+            &__label {
+                position: relative;
+                display: flex;
+                border: 1.5px solid transparent;
+
+                & span {
+                    position: absolute;
+                    width: 5rem;
+                    height: 100%;
+                    @include flex(center, center);
+                    color: var(--secondary-text);
+                }
+
+                & > input {
+                    border-radius: 99999px;
+                    width: 500px;
+                    height: 4rem;
+                    background-color: var(--bg-second);
+                    color: var(--primary-text);
+                    font-size: 1.5rem;
+                    line-height: 1.5;
+                    padding: 8px 8px 8px 40px;
+                }
+
+                & > input:hover {
+                    background-color: var(--hover-overlay);
+                }
+
+                & > input:focus:hover {
+                    background-color: var(--bg-second);
+                }
+
+                & > input::placeholder {
+                    font-size: 1.5rem;
+                }
+            }
+
+            &__result {
+                width: 500px;
+
+                &__header {
+                    @include flex(center, space-between);
+                    padding: 0rem 0rem 0.2rem 1rem;
+
+                    span {
+                        font-weight: 600;
+                        color: var(--primary-text);
+                        font-size: 1.6rem;
+                    }
+
+                    &__update {
+                        border-radius: 4px;
+                        transition: all 0.15s ease;
+                        &:hover {
+                            background-color: #f0f2f5;
+                        }
+                        span {
+                            display: block;
+                            padding: 8px;
+                            color: var(--blue-link);
+                            font-weight: 400;
+                            font-size: 1.4rem;
+                        }
+                    }
+                }
+            }
+        }
+
+        &__actions {
+            z-index: 999;
+            display: flex;
+
+            &__button {
+                width: 4rem;
+                height: 4rem;
+                border-radius: 50%;
+                overflow: hidden;
+                cursor: pointer;
+                user-select: none;
+
+                &__icon {
+                    width: inherit;
+                    height: inherit;
+                    background-color: var(--bg-second);
+                    @include flex(center, center);
+                }
+
+                &__img {
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    object-fit: cover;
+                    overflow: hidden;
+                    padding-top: 100%;
+                    position: relative;
+                    width: 100%;
+                }
+
+                & + & {
+                    margin-left: 0.8rem;
+                }
+            }
+        }
+    }
+}
