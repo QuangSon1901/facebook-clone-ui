@@ -28,36 +28,6 @@
         &__actions {
             z-index: 999;
             display: flex;
-
-            &__button {
-                width: 4rem;
-                height: 4rem;
-                border-radius: 50%;
-                overflow: hidden;
-                cursor: pointer;
-                user-select: none;
-
-                &__icon {
-                    width: inherit;
-                    height: inherit;
-                    background-color: var(--bg-second);
-                    @include flex(center, center);
-                }
-
-                &__img {
-                    background-repeat: no-repeat;
-                    background-size: cover;
-                    object-fit: cover;
-                    overflow: hidden;
-                    padding-top: 100%;
-                    position: relative;
-                    width: 100%;
-                }
-
-                & + & {
-                    margin-left: 0.8rem;
-                }
-            }
         }
     }
 }
