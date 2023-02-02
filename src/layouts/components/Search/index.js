@@ -10,6 +10,7 @@ import config from '~/config';
 import Image from '~/components/Image';
 import images from '~/assets/images';
 import { faClock } from '@fortawesome/free-regular-svg-icons';
+import ButtonCircle from '~/components/ButtonCircle';
 
 const Search = () => {
     const [searchValue, setSearchValue] = useState('');
@@ -49,7 +50,7 @@ const Search = () => {
                             <div className="search__result__body">
                                 <ButtonSquare to={config.routes.home} large>
                                     <div className="search__result__body__item">
-                                        <Image src={images.accountAvatar} className="search__result__body__item__img" />
+                                        <ButtonCircle img={images.accountAvatar} small />
                                         <div className="search__result__body__item__info">
                                             <div className="search__result__body__item__info__title">
                                                 Nguyễn Văn Huy
@@ -63,9 +64,7 @@ const Search = () => {
                                 </ButtonSquare>
                                 <ButtonSquare to={config.routes.home} large>
                                     <div className="search__result__body__item">
-                                        <div className="search__result__body__item__icon">
-                                            <FontAwesomeIcon icon={faClock} />
-                                        </div>
+                                        <ButtonCircle icon={images.clock} small />
                                         <div className="search__result__body__item__info">
                                             <div className="search__result__body__item__info__title">
                                                 Chúc mừng DOLBIE Hoài Bắc đã xuất sắc tiến thẳng lên Bảng vàng điểm cao
@@ -80,7 +79,7 @@ const Search = () => {
                                 </ButtonSquare>
                                 <ButtonSquare to={config.routes.home} large>
                                     <div className="search__result__body__item">
-                                        <Image src={images.accountAvatar} className="search__result__body__item__img" />
+                                        <ButtonCircle img={images.accountAvatar} small />
                                         <div className="search__result__body__item__info">
                                             <div className="search__result__body__item__info__title">Sơn Đặng</div>
                                         </div>
@@ -90,7 +89,7 @@ const Search = () => {
                                     </div>
                                 </ButtonSquare>
                                 <div className="search__result__body__loading">
-                                    <i class="bx bx-loader-circle bx-spin"></i>
+                                    <i className="bx bx-loader-circle bx-spin"></i>
                                 </div>
                             </div>
                         </PopperWrapper>

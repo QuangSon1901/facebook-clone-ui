@@ -5,6 +5,7 @@ import images from '~/assets/images';
 import config from '~/config';
 import Image from '~/components/Image';
 import Search from '~/layouts/components/Search';
+import ButtonCircle from '~/components/ButtonCircle';
 
 const Header = () => {
     return (
@@ -17,22 +18,9 @@ const Header = () => {
                 <Search />
 
                 <div className="header__inner__actions">
-                    <div className="header__inner__actions__button">
-                        <span className="header__inner__actions__button__icon">
-                            <img src={images.messageIcon} alt="" />
-                        </span>
-                    </div>
-                    <div className="header__inner__actions__button">
-                        <span className="header__inner__actions__button__icon">
-                            <img src={images.notificationIcon} alt="" />
-                        </span>
-                    </div>
-                    <div className="header__inner__actions__button">
-                        <div
-                            className="header__inner__actions__button__img"
-                            style={{ backgroundImage: `url(${images.accountAvatar})` }}
-                        ></div>
-                    </div>
+                    <ButtonCircle icon={images.messageIcon} tippyContent="Messenger" />
+                    <ButtonCircle icon={images.notificationIcon} tippyContent="Thông báo" />
+                    <ButtonCircle img={images.accountAvatar} tippyContent="Tài khoản" />
                 </div>
             </div>
         </header>
