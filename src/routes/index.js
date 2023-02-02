@@ -1,12 +1,13 @@
 // Layouts
 
 // Pages
-import Home from '~/pages/Home/home';
-import Profile from '~/pages/Profile/profile';
+import config from '~/config';
+import Home from '~/pages/Home';
+import Profile from '~/pages/Profile';
 
 const publicRoutes = [
-    { path: '/', component: Home },
-    { path: '/profile', component: Profile },
+    { path: config.routes.home, component: Home },
+    { path: config.routes.profile, component: Profile },
 ];
 
 const privateRoutes = [];
