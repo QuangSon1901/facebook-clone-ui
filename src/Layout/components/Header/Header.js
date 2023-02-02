@@ -4,10 +4,10 @@ import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
 import images from '~/assets/images';
 import styles from './Header.module.scss';
-import { Wrapper as PopperWrapper } from '~/components/Popper';
+import { Wrapper as PopperWrapper } from '~/components/Popper/popper';
 import Tippy from '@tippyjs/react/headless';
 import { useEffect, useState } from 'react';
-import AccountItem from '~/components/AccountItem';
+import AccountItem from '~/components/AccountItem/account_item';
 
 const cx = classNames.bind(styles);
 
@@ -51,7 +51,11 @@ const Header = () => {
                         <input placeholder="Tìm kiếm trên facebook" spellCheck="false" />
                     </div>
                 </Tippy>
-                <div className={cx('header__actions')}></div>
+                <div className={cx('header__actions')}>
+                    <div className={cx('header__actions__messager')}></div>
+                    <div className={cx('header__actions__messager')}></div>
+                    <div className={cx('header__actions__messager')}></div>
+                </div>
             </div>
         </header>
     );
