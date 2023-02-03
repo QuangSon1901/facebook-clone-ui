@@ -1,0 +1,57 @@
+.input-circle {
+    position: relative;
+    width: 100%;
+    @include flex(center, center);
+
+    &__label {
+        position: relative;
+        border: 1.5px solid transparent;
+
+        &__icon {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            @include flex(center, center);
+            color: var(--secondary-text) !important;
+            z-index: 9999;
+        }
+
+        & > input.m ~ &__icon {
+            width: 4rem;
+        }
+
+        & > input.l ~ &__icon {
+            width: 5rem;
+        }
+
+        & > input {
+            width: 100%;
+            border-radius: 99999px;
+            background-color: var(--bg-second);
+            color: var(--primary-text);
+            font-size: 1.5rem;
+            line-height: 1.5;
+
+            &.l {
+                padding: 9px 8px 9px 40px;
+            }
+
+            &.m {
+                padding: 7px 6px 7px 36px;
+            }
+        }
+
+        & > input:hover {
+            background-color: var(--hover-overlay);
+        }
+
+        & > input:focus:hover {
+            background-color: var(--bg-second);
+        }
+
+        & > input::placeholder {
+            font-size: 1.5rem;
+        }
+    }
+}

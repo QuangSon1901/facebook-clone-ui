@@ -2,6 +2,8 @@
     display: block;
     background-color: var(--bg-main);
     cursor: pointer;
+    user-select: none;
+    transition: background-color 0.1s ease-in-out;
 
     &.small {
         padding: 4px 6px;
@@ -16,5 +18,147 @@
 
     &:hover {
         background-color: var(--hover-overlay);
+    }
+
+    &__content {
+        position: relative;
+        width: 100%;
+        @include flex(center, flex-start);
+
+        &__img,
+        &__icon {
+            width: 3.6rem;
+            height: 3.6rem;
+            border-radius: 50%;
+        }
+
+        &__img {
+            object-fit: cover;
+        }
+
+        &__icon {
+            @include flex(center, center);
+            background-color: var(--bg-second);
+            font-size: 2rem;
+            color: var(--secondary-text);
+        }
+
+        &__info {
+            margin-left: 1.4rem;
+            margin-right: 4rem;
+            flex: 1;
+
+            &__title {
+                line-height: 2rem;
+                -webkit-line-clamp: 2;
+            }
+
+            &__sender {
+                line-height: 2.6rem;
+                max-width: 20rem;
+                -webkit-line-clamp: 1;
+            }
+
+            &__message {
+                @include flex(center, flex-start);
+                max-width: 20rem;
+
+                & > span:first-child {
+                    line-height: 1.8rem;
+                    display: -webkit-box;
+                    overflow: hidden;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 1;
+                }
+
+                & > span:last-child {
+                    white-space: nowrap;
+                }
+            }
+
+            &__more {
+                line-height: 1.6rem;
+                display: -webkit-box;
+                overflow: hidden;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 1;
+            }
+
+            &__title,
+            &__sender {
+                font-size: 1.4rem;
+                color: var(--primary-text);
+                display: -webkit-box;
+                overflow: hidden;
+                -webkit-box-orient: vertical;
+            }
+
+            &__more,
+            &__message {
+                font-size: 1.2rem;
+                color: var(--secondary-text);
+            }
+        }
+
+        &__close,
+        &__status {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 1rem;
+        }
+
+        &__status {
+            & > .no-receive,
+            & > .received {
+                -webkit-filter: var(--filter-secondary-icon2);
+            }
+
+            & > .received-seen {
+                width: 16px;
+                height: 16px;
+                border-radius: 50%;
+                object-fit: cover;
+                transform: translateX(2px);
+            }
+
+            & > .no-seen {
+                display: block;
+                width: 12px;
+                height: 12px;
+                background-color: var(--primary-color);
+                border-radius: 50%;
+            }
+        }
+    }
+}
+
+.button-square-menu {
+    position: relative;
+
+    &:hover &__btn {
+        display: block;
+    }
+
+    &__btn {
+        display: none;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 12%;
+
+        &__menu {
+            padding: 8px;
+
+            &__block + &__block {
+                margin-top: 8px;
+                padding-top: 8px;
+                border-top: 1px solid #ddd;
+            }
+        }
+    }
+
+    &__tippy > div:last-child:has(> .wrapper) {
+        position: fixed !important;
     }
 }

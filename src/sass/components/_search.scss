@@ -11,43 +11,6 @@
         display: none;
     }
 
-    &__label {
-        position: relative;
-        display: flex;
-        border: 1.5px solid transparent;
-
-        & span {
-            position: absolute;
-            width: 5rem;
-            height: 100%;
-            @include flex(center, center);
-            color: var(--secondary-text);
-        }
-
-        & > input {
-            border-radius: 99999px;
-            width: 500px;
-            height: 4rem;
-            background-color: var(--bg-second);
-            color: var(--primary-text);
-            font-size: 1.5rem;
-            line-height: 1.5;
-            padding: 8px 8px 8px 40px;
-        }
-
-        & > input:hover {
-            background-color: var(--hover-overlay);
-        }
-
-        & > input:focus:hover {
-            background-color: var(--bg-second);
-        }
-
-        & > input::placeholder {
-            font-size: 1.5rem;
-        }
-    }
-
     &__result {
         width: 500px;
 
@@ -61,7 +24,7 @@
                 font-size: 1.6rem;
             }
 
-            &__update-btn > span {
+            &__update-btn span {
                 color: var(--blue-link);
                 font-weight: 400;
                 font-size: 1.4rem;
@@ -69,56 +32,6 @@
         }
 
         &__body {
-            &__item {
-                position: relative;
-                width: 100%;
-                @include flex(center, flex-start);
-                padding-right: 4rem;
-                &__img,
-                &__icon {
-                    width: 3.6rem;
-                    height: 3.6rem;
-                    border-radius: 50%;
-                }
-
-                &__img {
-                    object-fit: cover;
-                }
-
-                &__icon {
-                    @include flex(center, center);
-                    background-color: var(--bg-second);
-                    font-size: 2rem;
-                    color: var(--secondary-text);
-                }
-
-                &__info {
-                    margin-left: 1.4rem;
-                    flex: 1;
-                    &__title {
-                        font-size: 1.4rem;
-                        line-height: 2rem;
-                        color: var(--primary-text);
-                        -webkit-box-orient: vertical;
-                        -webkit-line-clamp: 2;
-                        display: -webkit-box;
-                        overflow: hidden;
-                    }
-                    &__more {
-                        font-size: 1.2rem;
-                        line-height: 1.6rem;
-                        color: var(--secondary-text);
-                    }
-                }
-
-                &__close {
-                    position: absolute;
-                    top: 50%;
-                    transform: translateY(-50%);
-                    right: 1rem;
-                }
-            }
-
             &__loading {
                 padding: 1rem 0;
                 width: 100%;

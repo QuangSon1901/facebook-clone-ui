@@ -13,6 +13,18 @@
     --bg-main: #fff;
     --bg-second: #f0f2f5;
     --icon-color: #606770;
+    --positive: #31a24c;
+    --positive-background: #deefe1;
+
+    --shadow-1: rgba(0, 0, 0, 0.1);
+
+    --fds-animation-fade-out: cubic-bezier(0, 0, 1, 1);
+    --fds-duration-extra-extra-short-out: 100ms;
+
+    --filter-secondary-icon: invert(39%) sepia(21%) saturate(200%) saturate(109.5%) hue-rotate(174deg) brightness(94%)
+        contrast(86%);
+    --filter-secondary-icon2: invert(70%) sepia(21%) saturate(200%) saturate(109.5%) hue-rotate(174deg) brightness(98%)
+        contrast(86%);
 }
 
 $header-height: 56px;

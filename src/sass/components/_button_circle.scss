@@ -6,6 +6,7 @@
     cursor: pointer;
     user-select: none;
     background-color: transparent;
+    transition: background-color 0.1s ease-in-out;
 
     &.s {
         width: 2.8rem;
@@ -30,6 +31,34 @@
     &.xxl {
         width: 4.8rem;
         height: 4.8rem;
+    }
+
+    &.xxxl {
+        width: 5.6rem;
+        height: 5.6rem;
+    }
+
+    &.icon-cut {
+        @include flex(center, center);
+    }
+
+    &.icon-cut &__img {
+        border-radius: unset;
+        padding: unset;
+        -webkit-filter: var(--filter-secondary-icon);
+    }
+
+    &.active {
+        background-color: #e5f1fd !important;
+    }
+
+    &.active img {
+        filter: invert(20%) sepia(63%) saturate(6234%) hue-rotate(246deg) brightness(87%) contrast(156%);
+    }
+
+    &.white-btn {
+        background-color: var(--white-color);
+        box-shadow: 0 0 0 1px var(--shadow-1);
     }
 
     &.hover:hover {
@@ -71,5 +100,16 @@
         @include flex(center, center);
         background-color: var(--notification-badge);
         color: var(--always-white);
+    }
+
+    &__tick-online {
+        position: absolute;
+        bottom: 0px;
+        right: 0px;
+        width: 1.7rem;
+        height: 1.7rem;
+        border-radius: 50%;
+        background-color: var(--positive);
+        border: 2px solid var(--bg-main);
     }
 }
