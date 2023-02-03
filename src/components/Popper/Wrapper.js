@@ -1,5 +1,9 @@
-function Wrapper({ children, className }) {
-    return <div className={`wrapper ${className}`}>{children}</div>;
+function Wrapper({ children, className, ...props }) {
+    return (
+        <div className={`wrapper ${className}`} {...props}>
+            {children}
+        </div>
+    );
 }
 
 export default Wrapper;

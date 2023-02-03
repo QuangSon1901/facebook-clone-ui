@@ -9,6 +9,7 @@ import ButtonSquare from '~/components/ButtonSquare';
 import config from '~/config';
 import images from '~/assets/images';
 import ButtonCircle from '~/components/ButtonCircle';
+import InputCircle from '~/components/InputCircle';
 
 const Search = () => {
     const [searchValue, setSearchValue] = useState('');
@@ -34,62 +35,57 @@ const Search = () => {
                 visible={showResult && searchResult.length > 0}
                 render={(attrs) => (
                     <div className="search__result" tabIndex={-1} {...attrs}>
-                        <PopperWrapper>
+                        <PopperWrapper style={{ padding: '8px' }}>
                             <div className="search__result__header">
                                 <p className="search__result__header__title">Tìm kiếm gần đây</p>
                                 <ButtonSquare
                                     to={config.routes.home}
                                     small
                                     className="search__result__header__update-btn"
+                                    type={{
+                                        type: 'tag',
+                                    }}
                                 >
                                     <span>Chỉnh sửa</span>
                                 </ButtonSquare>
                             </div>
                             <div className="search__result__body">
-                                <ButtonSquare to={config.routes.home} large>
-                                    <div className="search__result__body__item">
-                                        <ButtonCircle img={images.accountAvatar} size="l" />
-                                        <div className="search__result__body__item__info">
-                                            <div className="search__result__body__item__info__title">
-                                                Nguyễn Văn Huy
-                                            </div>
-                                            <div className="search__result__body__item__info__more">Bạn bè</div>
-                                        </div>
-                                        <span className="search__result__body__item__close">
-                                            <ButtonCircle icon={images.closeIcon} size="s" hover />
-                                        </span>
-                                    </div>
-                                </ButtonSquare>
-                                <ButtonSquare to={config.routes.home} large>
-                                    <div className="search__result__body__item">
-                                        <ButtonCircle
-                                            icon={images.clock}
-                                            size="l"
-                                            style={{ backgroundColor: 'var(--bg-second)' }}
-                                        />
-                                        <div className="search__result__body__item__info">
-                                            <div className="search__result__body__item__info__title">
-                                                Chúc mừng DOLBIE Hoài Bắc đã xuất sắc tiến thẳng lên Bảng vàng điểm cao
-                                                cùng kết quả 8.0 mỹ mãn (vượt 0.5 band so với mục tiêu), tiếp tục nối
-                                                dài truyền thống xuất sắc của các DOLBIE nè!
-                                            </div>
-                                        </div>
-                                        <span className="search__result__body__item__close">
-                                            <ButtonCircle icon={images.closeIcon} size="s" hover />
-                                        </span>
-                                    </div>
-                                </ButtonSquare>
-                                <ButtonSquare to={config.routes.home} large>
-                                    <div className="search__result__body__item">
-                                        <ButtonCircle img={images.accountAvatar} size="l" />
-                                        <div className="search__result__body__item__info">
-                                            <div className="search__result__body__item__info__title">Sơn Đặng</div>
-                                        </div>
-                                        <span className="search__result__body__item__close">
-                                            <ButtonCircle icon={images.closeIcon} size="s" hover />
-                                        </span>
-                                    </div>
-                                </ButtonSquare>
+                                <ButtonSquare
+                                    to={config.routes.home}
+                                    large
+                                    type={{
+                                        type: 'search',
+                                        options: {
+                                            title: 'Nguyễn Văn Huy',
+                                            more: 'Bạn bè',
+                                            img: images.accountAvatar,
+                                        },
+                                    }}
+                                />
+                                <ButtonSquare
+                                    to={config.routes.home}
+                                    large
+                                    type={{
+                                        type: 'search',
+                                        options: {
+                                            title: `Chúc mừng DOLBIE Hoài Bắc đã xuất sắc tiến thẳng lên Bảng vàng điểm cao cùng
+                                            kết quả 8.0 mỹ mãn (vượt 0.5 band so với mục tiêu), tiếp tục nối dài truyền
+                                            thống xuất sắc của các DOLBIE nè!`,
+                                            img: images.accountAvatar,
+                                        },
+                                    }}
+                                />
+                                <ButtonSquare
+                                    to={config.routes.home}
+                                    large
+                                    type={{
+                                        type: 'search',
+                                        options: {
+                                            title: 'Sơn Đặng',
+                                            img: images.accountAvatar,
+                                        },
+                                    }}
+                                />
                                 <div className="search__result__body__loading">
                                     <i className="bx bx-loader-circle bx-spin"></i>
                                 </div>
@@ -99,20 +95,17 @@ const Search = () => {
                 )}
                 onClickOutside={handleHideResult}
             >
-                <label htmlFor="search-input" className="search__label">
-                    <span>
-                        <FontAwesomeIcon className="search__label__icon" icon={faMagnifyingGlass} />
-                    </span>
-                    <input
+                <div>
+                    <InputCircle
                         ref={inputRef}
                         value={searchValue}
                         onFocus={() => setShowResult(true)}
                         onChange={(e) => !e.target.value.startsWith(' ') && setSearchValue(e.target.value)}
                         id="search-input"
-                        placeholder="Tìm kiếm trên facebook"
-                        spellCheck="false"
+                        width="500px"
+                        placeholder="Tìm kiếm trên Facebook"
                     />
-                </label>
+                </div>
             </Tippy>
         </div>
     );

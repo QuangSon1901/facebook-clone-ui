@@ -6,10 +6,14 @@ const ButtonCircle = ({
     href,
     img,
     icon,
+    active = false,
+    whiteBtn,
     size = 'xl',
     tippyContent,
     notifyBadge,
+    tickOnline = false,
     children,
+    styleImg,
     className,
     hover,
     onClick,
@@ -38,16 +42,25 @@ const ButtonCircle = ({
     };
 
     const renderImg = (img) => {
-        return <div className="button-circle__img" style={{ backgroundImage: `url(${img})` }}></div>;
+        return <div className="button-circle__img" style={{ backgroundImage: `url(${img})`, ...styleImg }}></div>;
     };
 
-    const classes = ['button-circle', className, size, hover && 'hover'];
+    const classes = [
+        'button-circle',
+        className,
+        size,
+        hover && 'hover',
+        styleImg && 'icon-cut',
+        active ? 'active' : '',
+        whiteBtn && 'white-btn',
+    ];
     return tippyContent ? (
         <Tippy content={<span className="tippy-text">{tippyContent}</span>} delay={[200, 0]} arrow={false}>
             <Comp className={classes.join(' ')} {...props}>
                 {icon && renderIcon(icon)}
                 {img && renderImg(img)}
                 {notifyBadge && <span className="button-circle__notify-badge">{notifyBadge}</span>}
+                {tickOnline && <span className="button-circle__tick-online" />}
             </Comp>
         </Tippy>
     ) : (
@@ -55,6 +68,7 @@ const ButtonCircle = ({
             {icon && renderIcon(icon)}
             {img && renderImg(img)}
             {notifyBadge && <span className="button-circle__notify-badge">{notifyBadge}</span>}
+            {tickOnline && <span className="button-circle__tick-online" />}
         </Comp>
     );
 };
