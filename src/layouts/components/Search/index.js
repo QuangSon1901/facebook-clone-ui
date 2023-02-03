@@ -7,9 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import ButtonSquare from '~/components/ButtonSquare';
 import config from '~/config';
-import Image from '~/components/Image';
 import images from '~/assets/images';
-import { faClock } from '@fortawesome/free-regular-svg-icons';
 import ButtonCircle from '~/components/ButtonCircle';
 
 const Search = () => {
@@ -50,7 +48,7 @@ const Search = () => {
                             <div className="search__result__body">
                                 <ButtonSquare to={config.routes.home} large>
                                     <div className="search__result__body__item">
-                                        <ButtonCircle img={images.accountAvatar} small />
+                                        <ButtonCircle img={images.accountAvatar} size="l" />
                                         <div className="search__result__body__item__info">
                                             <div className="search__result__body__item__info__title">
                                                 Nguyễn Văn Huy
@@ -58,13 +56,17 @@ const Search = () => {
                                             <div className="search__result__body__item__info__more">Bạn bè</div>
                                         </div>
                                         <span className="search__result__body__item__close">
-                                            <FontAwesomeIcon icon={faXmark} />
+                                            <ButtonCircle icon={images.closeIcon} size="s" hover />
                                         </span>
                                     </div>
                                 </ButtonSquare>
                                 <ButtonSquare to={config.routes.home} large>
                                     <div className="search__result__body__item">
-                                        <ButtonCircle icon={images.clock} small />
+                                        <ButtonCircle
+                                            icon={images.clock}
+                                            size="l"
+                                            style={{ backgroundColor: 'var(--bg-second)' }}
+                                        />
                                         <div className="search__result__body__item__info">
                                             <div className="search__result__body__item__info__title">
                                                 Chúc mừng DOLBIE Hoài Bắc đã xuất sắc tiến thẳng lên Bảng vàng điểm cao
@@ -73,18 +75,18 @@ const Search = () => {
                                             </div>
                                         </div>
                                         <span className="search__result__body__item__close">
-                                            <FontAwesomeIcon icon={faXmark} />
+                                            <ButtonCircle icon={images.closeIcon} size="s" hover />
                                         </span>
                                     </div>
                                 </ButtonSquare>
                                 <ButtonSquare to={config.routes.home} large>
                                     <div className="search__result__body__item">
-                                        <ButtonCircle img={images.accountAvatar} small />
+                                        <ButtonCircle img={images.accountAvatar} size="l" />
                                         <div className="search__result__body__item__info">
                                             <div className="search__result__body__item__info__title">Sơn Đặng</div>
                                         </div>
                                         <span className="search__result__body__item__close">
-                                            <FontAwesomeIcon icon={faXmark} />
+                                            <ButtonCircle icon={images.closeIcon} size="s" hover />
                                         </span>
                                     </div>
                                 </ButtonSquare>
