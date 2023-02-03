@@ -7,6 +7,10 @@
     @include flex(center, center);
     z-index: 99;
 
+    @include mobile {
+        display: none;
+    }
+
     &__label {
         position: relative;
         display: flex;
@@ -109,19 +113,9 @@
 
                 &__close {
                     position: absolute;
-                    width: 3rem;
-                    height: 3rem;
-                    border-radius: 50%;
-                    @include flex(center, center);
                     top: 50%;
                     transform: translateY(-50%);
                     right: 1rem;
-                    color: var(--secondary-text);
-
-                    &:hover {
-                        background-color: var(--hover-overlay);
-                        filter: brightness(96%);
-                    }
                 }
             }
 

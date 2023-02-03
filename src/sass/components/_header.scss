@@ -23,11 +23,30 @@
             display: block;
             @include flex(center, center);
             z-index: 999;
+
+            &__mb {
+                display: none;
+            }
+
+            @include mobile {
+                &__pc {
+                    display: none;
+                }
+
+                &__mb {
+                    display: block;
+                    margin-right: 0.8rem;
+                }
+            }
         }
 
         &__actions {
             z-index: 999;
             display: flex;
+
+            & > * ~ * {
+                margin-left: 0.8rem;
+            }
         }
     }
 }
