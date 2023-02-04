@@ -11,6 +11,10 @@ import ButtonCircle from '~/components/ButtonCircle';
 import InputCircle from '~/components/InputCircle';
 import ButtonSquare from '~/components/ButtonSquare';
 import { useState } from 'react';
+import Menu from '~/components/Popper/Menu';
+import HeaderMenu from '~/components/Popper/Menu/HeaderMenu';
+import FooterMenu from '~/components/Popper/Menu/FooterMenu';
+import BodyMenu from '~/components/Popper/Menu/BodyMenu';
 
 const menuData = [
     [
@@ -159,7 +163,7 @@ const messageList = [
     },
 ];
 
-const actions = [
+const messageActions = [
     {
         img: images.icons1,
         styleImg: {
@@ -202,8 +206,22 @@ const actions = [
     },
 ];
 
+const notificationActions = [
+    {
+        img: images.icons1,
+        styleImg: {
+            backgroundPosition: '-132px -110px',
+            backgroundSize: '190px 204px',
+            width: '20px',
+            height: '20px',
+        },
+        tippyContent: 'Tuỳ chọn',
+    },
+];
+
 const Header = () => {
     const [messengerToggle, setMessengerToggle] = useState(false);
+    const [notificationToggle, setNotificationToggle] = useState(false);
     const [menuOptionsMessage, setMenuOptionsMessage] = useState(null);
     return (
         <header className="header">
@@ -222,112 +240,96 @@ const Header = () => {
                 <Search />
 
                 <div className="header__inner__actions">
-                    <div>
-                        <Tippy
-                            interactive
-                            visible={messengerToggle}
-                            render={(attrs) => (
-                                <PopperWrapper style={{ overflow: 'hidden' }}>
-                                    <div className="header__inner__actions__messsage-wrapper">
-                                        <div className="header__inner__actions__messsage-wrapper__main">
-                                            <div>
-                                                <div className="header__inner__actions__messsage-wrapper__main__header">
-                                                    <div>
-                                                        <h2 className="header__inner__actions__messsage-wrapper__main__header__title">
-                                                            Chat
-                                                        </h2>
-                                                        <div className="header__inner__actions__messsage-wrapper__main__header__actions">
-                                                            {actions &&
-                                                                actions.length > 0 &&
-                                                                actions.map((action, index) => (
-                                                                    <ButtonCircle
-                                                                        key={index}
-                                                                        img={action.img}
-                                                                        size="m"
-                                                                        styleImg={action.styleImg}
-                                                                        hover
-                                                                        tippyContent={action.tippyContent}
-                                                                    />
-                                                                ))}
-                                                        </div>
-                                                    </div>
-                                                    <div>
-                                                        <InputCircle
-                                                            size="m"
-                                                            onChange={() => {
-                                                                return;
-                                                            }}
-                                                            placeholder="Tìm kiếm trên Messenger"
-                                                        />
-                                                    </div>
-                                                </div>
-                                                <div className="header__inner__actions__messsage-wrapper__main__messenger">
-                                                    {messageList &&
-                                                        messageList.length > 0 &&
-                                                        messageList.map((messageItem, index) => {
-                                                            const { to, sender, message, time, img, status, online } =
-                                                                messageItem;
-                                                            return (
-                                                                <ButtonSquare
-                                                                    key={index}
-                                                                    to={to}
-                                                                    large
-                                                                    type={{
-                                                                        type: 'messenger',
-                                                                        options: {
-                                                                            sizeImg: 'xxxl',
-                                                                            sender,
-                                                                            message,
-                                                                            time,
-                                                                            img,
-                                                                            status,
-                                                                            online,
-                                                                        },
-                                                                    }}
-                                                                    menuOptions={{
-                                                                        info: {},
-                                                                        data: menuData,
-                                                                        active: menuOptionsMessage === index,
-                                                                        onActive: () =>
-                                                                            menuOptionsMessage === index
-                                                                                ? setMenuOptionsMessage(null)
-                                                                                : setMenuOptionsMessage(index),
-                                                                        onClose: () => setMenuOptionsMessage(null),
-                                                                    }}
-                                                                />
-                                                            );
-                                                        })}
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="header__inner__actions__messsage-wrapper__footer">
-                                            <Link to={config.routes.home}>Xem tất cả trong Messenger</Link>
-                                        </div>
-                                    </div>
-                                </PopperWrapper>
-                            )}
-                            onClickOutside={() => setMessengerToggle(false)}
-                        >
-                            <div>
-                                <ButtonCircle
-                                    icon={images.messageIcon}
-                                    hover
-                                    notifyBadge="3"
-                                    tippyContent="Messenger"
-                                    active={true}
-                                    style={{ backgroundColor: 'var(--bg-second)' }}
-                                    onClick={() => setMessengerToggle(!messengerToggle)}
-                                />
-                            </div>
-                        </Tippy>
-                    </div>
-                    <ButtonCircle
-                        icon={images.notificationIcon}
-                        hover
-                        notifyBadge="10"
-                        tippyContent="Thông báo"
-                        style={{ backgroundColor: 'var(--bg-second)' }}
-                    />
+                    <Menu
+                        visible={messengerToggle}
+                        onVisible={() => setMessengerToggle(false)}
+                        renderHeader={
+                            <HeaderMenu
+                                heading="Chat"
+                                actions={messageActions}
+                                children={
+                                    <InputCircle
+                                        size="m"
+                                        onChange={() => {
+                                            return;
+                                        }}
+                                        placeholder="Tìm kiếm trên Messenger"
+                                    />
+                                }
+                            />
+                        }
+                        renderFooter={<FooterMenu to={config.routes.home} text="Xem tất cả trong Messenger" />}
+                        renderBody={
+                            <BodyMenu>
+                                {messageList &&
+                                    messageList.length > 0 &&
+                                    messageList.map((messageItem, index) => {
+                                        const { to, sender, message, time, img, status, online } = messageItem;
+                                        return (
+                                            <ButtonSquare
+                                                key={index}
+                                                to={to}
+                                                large
+                                                type={{
+                                                    type: 'messenger',
+                                                    options: {
+                                                        sizeImg: 'xxxl',
+                                                        sender,
+                                                        message,
+                                                        time,
+                                                        img,
+                                                        status,
+                                                        online,
+                                                    },
+                                                }}
+                                                menuOptions={{
+                                                    info: {},
+                                                    data: menuData,
+                                                    active: menuOptionsMessage === index,
+                                                    onActive: () =>
+                                                        menuOptionsMessage === index
+                                                            ? setMenuOptionsMessage(null)
+                                                            : setMenuOptionsMessage(index),
+                                                    onClose: () => setMenuOptionsMessage(null),
+                                                }}
+                                            />
+                                        );
+                                    })}
+                            </BodyMenu>
+                        }
+                    >
+                        <ButtonCircle
+                            icon={images.messageIcon}
+                            hover
+                            notifyBadge="3"
+                            tippyContent="Messenger"
+                            active={messengerToggle}
+                            style={{ backgroundColor: 'var(--bg-second)' }}
+                            onClick={() => setMessengerToggle(!messengerToggle)}
+                        />
+                    </Menu>
+                    <Menu
+                        visible={notificationToggle}
+                        onVisible={() => setNotificationToggle(false)}
+                        renderHeader={<HeaderMenu heading="Thông báo" actions={notificationActions} />}
+                        renderBody={
+                            <BodyMenu>
+                                <div style={{ textAlign: 'center' }}>
+                                    <i>Trống</i>
+                                </div>
+                            </BodyMenu>
+                        }
+                    >
+                        <ButtonCircle
+                            icon={images.notificationIcon}
+                            hover
+                            notifyBadge="10"
+                            tippyContent="Thông báo"
+                            active={notificationToggle}
+                            style={{ backgroundColor: 'var(--bg-second)' }}
+                            onClick={() => setNotificationToggle(!notificationToggle)}
+                        />
+                    </Menu>
                     <ButtonCircle img={images.accountAvatar} hover tippyContent="Tài khoản" />
                 </div>
             </div>
