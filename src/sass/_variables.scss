@@ -17,6 +17,7 @@
     --positive-background: #deefe1;
 
     --shadow-1: rgba(0, 0, 0, 0.1);
+    --shadow-2: rgba(0, 0, 0, 0.2);
 
     --fds-animation-fade-out: cubic-bezier(0, 0, 1, 1);
     --fds-duration-extra-extra-short-out: 100ms;
@@ -33,3 +34,5 @@ $tablet-width: 1260px;
 $tablet-small-width: 1098px;
 $mobile-width: 900px;
 $mobile-small-width: 700px;
+
+$sidebar-mx-width: 360px;

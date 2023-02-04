@@ -11,6 +11,7 @@ const HeaderMenu = ({ heading, actions, children }) => {
                         actions.length > 0 &&
                         actions.map((action, index) => (
                             <ButtonCircle
+                                activeAni
                                 key={index}
                                 img={action.img}
                                 size="m"

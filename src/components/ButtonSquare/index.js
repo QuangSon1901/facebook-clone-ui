@@ -83,6 +83,7 @@ const ButtonSquare = ({
                     >
                         <div className="button-square-menu__btn">
                             <ButtonCircle
+                                activeAni
                                 img={images.icons1}
                                 size="l"
                                 whiteBtn
@@ -104,17 +105,18 @@ const ButtonSquare = ({
 };
 
 const ButtonSearch = ({ options }) => {
-    const { sizeImg = 'l', more = '', title = '', img = '', close = true, styleImg } = options;
+    const { sizeImg = 'l', more = '', title = '', img = '', close = true, styleImg, font = 'normal' } = options;
     return (
         <>
             <ButtonCircle img={img} size={sizeImg} styleImg={styleImg} />
-            <div className="button-square__content__info">
+            <div className={`button-square__content__info ${font}`}>
                 <div className="button-square__content__info__title">{title}</div>
                 <div className="button-square__content__info__more">{more}</div>
             </div>
             {close && (
                 <span className="button-square__content__close">
                     <ButtonCircle
+                        activeAni
                         img={images.icons1}
                         size="s"
                         styleImg={{
@@ -132,31 +134,44 @@ const ButtonSearch = ({ options }) => {
 };
 
 const ButtonMessenger = ({ options }) => {
-    const { sizeImg = 'xxxl', message = '', sender = '', img = '', time, status = 'no-seen', online = false } = options;
+    const {
+        sizeImg = 'xxxl',
+        message = '',
+        sender = '',
+        img = '',
+        time,
+        status,
+        online = false,
+        font = 'normal',
+    } = options;
     return (
         <>
             <ButtonCircle img={img} size={sizeImg} tickOnline={online} />
-            <div className="button-square__content__info">
+            <div className={`button-square__content__info ${font}`}>
                 <div className="button-square__content__info__sender">
                     {status === 'no-seen' ? <span style={{ fontWeight: '500' }}>{sender}</span> : sender}
                 </div>
-                <p className="button-square__content__info__message">
-                    <span>
-                        {status === 'no-seen' ? (
-                            <span style={{ fontWeight: '500', color: 'var(--primary-color)' }}>{message}</span>
-                        ) : (
-                            message
-                        )}
-                    </span>
-                    <span>&nbsp;&bull;&nbsp;{time}</span>
-                </p>
+                {message && (
+                    <p className="button-square__content__info__message">
+                        <span>
+                            {status === 'no-seen' ? (
+                                <span style={{ fontWeight: '500', color: 'var(--primary-color)' }}>{message}</span>
+                            ) : (
+                                message
+                            )}
+                        </span>
+                        <span>&nbsp;&bull;&nbsp;{time}</span>
+                    </p>
+                )}
             </div>
-            <span className="button-square__content__status">
-                {status === 'no-receive' && <Image src={images.notReceive} className="no-receive" />}
-                {status === 'received' && <Image src={images.received} className="received" />}
-                {status === 'received-seen' && <Image src={img} className="received-seen" />}
-                {status === 'no-seen' && <span className="no-seen"></span>}
-            </span>
+            {status && (
+                <span className="button-square__content__status">
+                    {status === 'no-receive' && <Image src={images.notReceive} className="no-receive" />}
+                    {status === 'received' && <Image src={images.received} className="received" />}
+                    {status === 'received-seen' && <Image src={img} className="received-seen" />}
+                    {status === 'no-seen' && <span className="no-seen"></span>}
+                </span>
+            )}
         </>
     );
 };

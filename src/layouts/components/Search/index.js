@@ -1,14 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
 
 import Tippy from '@tippyjs/react/headless';
-import { faMagnifyingGlass, faXmark } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import ButtonSquare from '~/components/ButtonSquare';
 import config from '~/config';
 import images from '~/assets/images';
-import ButtonCircle from '~/components/ButtonCircle';
 import InputCircle from '~/components/InputCircle';
 
 const Search = () => {
@@ -98,6 +95,7 @@ const Search = () => {
                 <div>
                     <InputCircle
                         ref={inputRef}
+                        leftIcon
                         value={searchValue}
                         onFocus={() => setShowResult(true)}
                         onChange={(e) => !e.target.value.startsWith(' ') && setSearchValue(e.target.value)}

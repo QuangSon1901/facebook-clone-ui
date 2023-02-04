@@ -11,6 +11,10 @@ const images = {
     icons1: require('~/assets/images/0CrhH_2S8bD.png'),
     icons2: require('~/assets/images/9u1nfewwpW1.png'),
     icons3: require('~/assets/images/cc3CJ05s1xa.png'),
+    icons4: require('~/assets/images/icon4.png'),
+    icons5: require('~/assets/images/icons5.png'),
+    icons7: require('~/assets/images/icons7.png'),
+    icons6: require('~/assets/images/icons6.png'),
     notReceive: require('~/assets/images/no-receive.svg').default,
     received: require('~/assets/images/received.svg').default,
 };

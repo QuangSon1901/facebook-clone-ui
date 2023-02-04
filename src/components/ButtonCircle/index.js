@@ -8,6 +8,7 @@ const ButtonCircle = ({
     icon,
     active = false,
     whiteBtn,
+    activeAni,
     size = 'xl',
     tippyContent,
     notifyBadge,
@@ -53,6 +54,7 @@ const ButtonCircle = ({
         styleImg && 'icon-cut',
         active ? 'active' : '',
         whiteBtn && 'white-btn',
+        activeAni && 'activeAni',
     ];
     return tippyContent ? (
         <Tippy content={<span className="tippy-text">{tippyContent}</span>} delay={[200, 0]} arrow={false}>
