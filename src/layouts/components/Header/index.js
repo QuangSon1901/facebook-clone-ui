@@ -249,6 +249,7 @@ const Header = () => {
                                 actions={messageActions}
                                 children={
                                     <InputCircle
+                                        leftIcon
                                         size="m"
                                         onChange={() => {
                                             return;
@@ -299,6 +300,7 @@ const Header = () => {
                         }
                     >
                         <ButtonCircle
+                            activeAni
                             icon={images.messageIcon}
                             hover
                             notifyBadge="3"
@@ -321,6 +323,7 @@ const Header = () => {
                         }
                     >
                         <ButtonCircle
+                            activeAni
                             icon={images.notificationIcon}
                             hover
                             notifyBadge="10"
@@ -330,7 +333,7 @@ const Header = () => {
                             onClick={() => setNotificationToggle(!notificationToggle)}
                         />
                     </Menu>
-                    <ButtonCircle img={images.accountAvatar} hover tippyContent="Tài khoản" />
+                    <ButtonCircle activeAni img={images.accountAvatar} hover tippyContent="Tài khoản" />
                 </div>
             </div>
         </header>

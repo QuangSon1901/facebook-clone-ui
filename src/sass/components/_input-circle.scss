@@ -34,20 +34,24 @@
             line-height: 1.5;
 
             &.l {
-                padding: 9px 8px 9px 40px;
+                padding: 9px 8px 9px 16px;
             }
 
             &.m {
-                padding: 7px 6px 7px 36px;
+                padding: 7px 6px 7px 16px;
+            }
+
+            &.left-icon.l {
+                padding-left: 40px;
+            }
+
+            &.left-icon.m {
+                padding-left: 36px;
             }
         }
 
         & > input:hover {
             background-color: var(--hover-overlay);
-        }
-
-        & > input:focus:hover {
-            background-color: var(--bg-second);
         }
 
         & > input::placeholder {
