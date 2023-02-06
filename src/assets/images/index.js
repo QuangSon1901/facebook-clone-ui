@@ -15,8 +15,13 @@ const images = {
     icons5: require('~/assets/images/icons5.png'),
     icons7: require('~/assets/images/icons7.png'),
     icons6: require('~/assets/images/icons6.png'),
+    icons8: require('~/assets/images/ShdZajS8shf.png'),
+    publicIcon: require('~/assets/images/public-icon.svg').default,
     notReceive: require('~/assets/images/no-receive.svg').default,
     received: require('~/assets/images/received.svg').default,
+    heartIcon: require('~/assets/images/heart-icon.svg').default,
+    likeIcon: require('~/assets/images/like.svg').default,
+    likeEmptyIcon: require('~/assets/images/KWPAAg8LKfs.png'),
 };
 
 export default images;

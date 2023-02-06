@@ -1,0 +1,126 @@
+.card {
+    &__header {
+        padding: 8px 16px;
+        @include flex(center, space-between);
+
+        &__right {
+            @include flex(center, flex-start);
+            & > * ~ * {
+                margin-left: 8px;
+            }
+
+            & h4 {
+                font-size: 1.4rem;
+                font-weight: 600;
+                max-width: 300px;
+                margin-bottom: 2px;
+                display: -webkit-box;
+                overflow: hidden;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 1;
+            }
+
+            &__desc {
+                font-size: 1.2rem;
+                font-weight: 400;
+                color: var(--secondary-text);
+                & > * ~ * {
+                    margin-left: 4px;
+                }
+                & > img {
+                    transform: translateY(1px);
+                    width: 1.2rem;
+                    height: 1.2rem;
+                    -webkit-filter: var(--filter-secondary-icon);
+                }
+            }
+        }
+
+        &__left {
+            @include flex(center, flex-end);
+        }
+    }
+
+    &__body {
+        &__caption {
+            padding: 8px 16px;
+            font-size: 1.4rem;
+            font-weight: 400;
+        }
+
+        &__content {
+            max-width: 100%;
+
+            &__image {
+                @include flex(center, center);
+                // background-color: rgb(58, 21, 20);
+                max-width: 100%;
+
+                & > img {
+                    max-width: 100%;
+                    max-height: calc(100vh - $header-height - 32px);
+                }
+            }
+        }
+    }
+
+    &__actions {
+        padding: 8px 16px 0;
+        @include flex(center, space-between);
+
+        & > * {
+            flex: 1;
+        }
+
+        &__span {
+            letter-spacing: -1px;
+            font-weight: 500;
+            margin-left: 2px;
+            font-size: 1.6rem;
+            white-space: nowrap;
+            color: var(--secondary-text);
+        }
+
+        &__body {
+            &__num {
+                @include flex(center, space-between);
+                padding: 4px 0 8px;
+                font-size: 1.4rem;
+                font-weight: 400;
+                color: var(--secondary-text);
+                & a:hover {
+                    text-decoration: underline;
+                }
+                &__left {
+                    @include flex(cent, flex-start);
+                    & > * ~ * {
+                        margin-left: 0.4rem;
+                    }
+                    &__icon {
+                        @include flex(cent, flex-start);
+                        & > img {
+                            border-radius: 50%;
+                            border: 1px solid var(--white-color);
+                        }
+                    }
+                }
+                &__right {
+                    & > * ~ * {
+                        margin-left: 1.6rem;
+                    }
+                }
+            }
+            &__actions {
+                padding: 4px 0;
+                @include flex(center, space-between);
+                & > * {
+                    flex: 1;
+                }
+            }
+
+            & > *:not(:last-child) {
+                border-bottom: 1px solid #ddd;
+            }
+        }
+    }
+}
