@@ -31,3 +31,42 @@ a[href] {
     color: var(--text-color);
     text-decoration: none;
 }
+
+ul,
+ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.btn {
+    align-items: center;
+    color: var(--white-color);
+    border: none;
+    border-radius: 6px;
+    line-height: 4.8rem;
+    padding: 0 16px;
+    width: 100px;
+    height: 48px;
+    cursor: pointer;
+}
+
+.btn--medium {
+    width: 178px;
+    font-size: 16px;
+}
+
+.btn--small {
+    width: 80px;
+    font-size: 12px;
+}
+
+.btn--large {
+    width: 330px;
+    font-size: 18px;
+}
+
+.btn--primary {
+    color: var(--white-color);
+    background-color: var(--primary-color);
+}

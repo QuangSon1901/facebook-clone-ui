@@ -1,0 +1,401 @@
+.auth__register {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background-color: transparent;
+    overflow-y: scroll;
+
+    &__overlay {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.8);
+    }
+
+    &__container {
+        &__modal {
+            position: absolute;
+            background-color: #fff;
+            width: 432px;
+            border-radius: 8px;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+
+            & > div:first-child {
+                position: absolute;
+                font-size: 2.4rem;
+                color: #606771;
+                top: 14px;
+                right: 18px;
+            }
+
+            &__header {
+                padding: 16px;
+                & > div:first-child {
+                    font-size: 3.2rem;
+                    line-height: 3.8rem;
+                    font-weight: 600;
+                }
+
+                & > div:last-child {
+                    color: #606770;
+                    font-size: 1.5rem;
+                    line-height: 2.4rem;
+                    font-weight: 400;
+                }
+            }
+
+            &__content {
+                border-top: 1px solid #dadde1;
+                padding: 16px;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    border-radius: 8px;
+                    background-color: transparent;
+                    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+                    inset: 0;
+                    z-index: 0;
+                    width: 432px;
+                    pointer-events: none;
+
+                    @include mobile-small {
+                        width: 100%;
+                    }
+                }
+
+                & > form > div:first-child {
+                    @include flex(center, space-between);
+
+                    @include mobile-small {
+                        gap: 10px;
+                    }
+                }
+
+                & > form > div:nth-child(2) {
+                    @include flex(center, space-between);
+                    flex-direction: column;
+                    gap: 2px;
+
+                    & label {
+                        width: 100%;
+                    }
+                }
+
+                &__form-group {
+                    position: relative;
+                    margin-bottom: 10px;
+
+                    &__input-field {
+                        border: 1px solid #ccd0d5;
+                        border-radius: 5px;
+                        background-color: #f5f6f7;
+                        width: 100%;
+                        padding: 11px;
+
+                        &.error {
+                            border: 1px solid red;
+                            border-radius: 5px;
+                        }
+                    }
+
+                    &__birthday-desc,
+                    &__gender-desc {
+                        position: absolute;
+                        padding: 10px;
+                        top: 0;
+                        left: -82%;
+                        background-color: #fff;
+                        box-shadow: 0 12px 28px 0 rgb(0 0 0 / 20%);
+                        z-index: 99;
+                        width: 356px;
+                        line-height: 1.4;
+
+                        @include tablet {
+                            width: 100%;
+                            left: 0;
+                            top: 24px;
+                        }
+                    }
+
+                    &__message-error {
+                        font-size: 13px;
+                        max-width: 300px;
+                        width: 100%;
+                        z-index: 9;
+                        position: absolute;
+                        left: 0;
+                        top: 54px;
+                        padding: 13px;
+                        background-color: #be4b49;
+                        border: 0;
+                        border-radius: 2px;
+                        box-shadow: 0 0 0 1px rgb(139 3 0 / 75%), 0 1px 10px rgb(0 0 0 / 35%);
+                        color: #fff;
+
+                        &::before {
+                            content: '';
+                            position: absolute;
+                            top: -11px;
+                            left: 14px;
+                            background-image: url('../../assets/images/arrow_icon.png');
+                            background-repeat: no-repeat;
+                            background-size: auto;
+                            background-position: 0 -59px;
+                            height: 22px;
+                            width: 22px;
+                            overflow: hidden;
+                        }
+                    }
+
+                    &__icon-error {
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        padding: 10px;
+                        color: #b94a48;
+                    }
+
+                    & > div:first-child {
+                        position: relative;
+                        color: #606770;
+                        font-size: 1.3rem;
+                        line-height: 2.4rem;
+                        margin-top: 2px;
+                        font-weight: 500;
+                        width: 100%;
+
+                        & > a {
+                            margin-left: 4px;
+                            color: #606770;
+                        }
+
+                        & > span {
+                            position: absolute;
+                            right: 10px;
+
+                            & svg {
+                                width: 16px;
+                                height: 16px;
+                            }
+                        }
+
+                        & label {
+                            display: inline-block;
+                            width: 100%;
+
+                            & a {
+                                color: #606770;
+                            }
+                        }
+                    }
+
+                    &__birthday-wrapper {
+                        @include flex(center, space-between);
+                        gap: 10px;
+
+                        &__item {
+                            width: 100%;
+                            height: 36px;
+                            border: 1px solid #ccd0d5;
+                            border-radius: 4px;
+                            color: #1c1e21;
+                            line-height: 2rem;
+                            font-size: 1.5rem;
+                            outline: none;
+
+                            &.error {
+                                border: 1px solid red;
+                                border-radius: 5px;
+                            }
+                        }
+                    }
+
+                    &__gender-wrapper {
+                        @include flex(center, space-between);
+                        flex-wrap: wrap;
+                        gap: 10px;
+
+                        &__item {
+                            background-color: #fff;
+                            border: 1px solid #ccd0d5;
+                            display: inline-block;
+                            flex: 1 1 auto;
+                            height: 36px;
+                            position: relative;
+                            border-radius: 4px;
+
+                            & label {
+                                color: #1c1e21;
+                                display: inline-block;
+                                font-size: 15px;
+                                line-height: 36px;
+                                padding: 0 28px 0 10px;
+                                width: 100%;
+                            }
+
+                            & input {
+                                position: absolute;
+                                height: 36px;
+                                right: 10px;
+                                top: 0;
+                            }
+
+                            &.error {
+                                border: 1px solid red;
+                                border-radius: 5px;
+                            }
+                        }
+                    }
+
+                    &__custom-gender {
+                        & select {
+                            height: 36px;
+                            color: #1c1e21;
+                            font-size: 1.5rem;
+                            line-height: 3.6rem;
+                            width: 100%;
+                            border-radius: 4px;
+                            border: 1px solid #ccd0d5;
+                            padding: 0 20px 0 6px;
+                            margin: 4px 0;
+                            outline: none;
+
+                            &.error {
+                                border: 1px solid red;
+                                border-radius: 5px;
+                            }
+                        }
+
+                        & p {
+                            color: #606770;
+                            font-size: 1.1rem;
+                            margin-bottom: 4px;
+                        }
+
+                        & input {
+                            padding: 11px;
+                            font-size: 1.5rem;
+                            line-height: 1.6rem;
+                            background: #f5f6f7;
+                            border-radius: 5px;
+                            border: 1px solid #ccd0d5;
+                            width: 100%;
+                        }
+
+                        &__icon-error {
+                            position: absolute;
+                            top: 0;
+                            right: 0;
+                            padding: 10px;
+                            color: #b94a48;
+                        }
+
+                        &__message-error {
+                            font-size: 13px;
+                            max-width: 300px;
+                            width: 100%;
+                            z-index: 9;
+                            position: absolute;
+                            left: -80%;
+                            top: 0;
+                            padding: 13px;
+                            background-color: #be4b49;
+                            border: 0;
+                            border-radius: 2px;
+                            box-shadow: 0 0 0 1px rgb(139 3 0 / 75%), 0 1px 10px rgb(0 0 0 / 35%);
+                            color: #fff;
+
+                            &::before {
+                                content: '';
+                                position: absolute;
+                                top: 10px;
+                                right: -21px;
+                                background-image: url('../../assets/images/arrow_icon.png');
+                                background-repeat: no-repeat;
+                                background-size: auto;
+                                background-position: 0 -34px;
+                                height: 22px;
+                                width: 22px;
+                                overflow: hidden;
+
+                                @include mobile-small {
+                                    background-position: 0 8px;
+                                    top: 90%;
+                                    right: 0;
+                                    left: 50%;
+                                }
+                            }
+
+                            @include tablet {
+                                left: -35%;
+                                width: 125px;
+                            }
+
+                            @include mobile-small {
+                                width: 100px;
+                                top: -100%;
+                                left: 0;
+                            }
+                        }
+                    }
+                }
+
+                &__desc {
+                    margin: 10px 0;
+                    & p {
+                        width: 100%;
+                        font-size: 1.1rem;
+                        color: #777;
+                        font-weight: 500;
+                        line-height: 1.6rem;
+                    }
+
+                    & a {
+                        padding: 0 4px;
+                        color: #385898;
+                        cursor: pointer;
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+
+                &__btn {
+                    text-align: center;
+                    padding: 10px 0;
+                    & button {
+                        background-color: #00a400;
+                        border-radius: 6px;
+                        font-size: 1.8rem;
+                        line-height: 1.8rem;
+                        font-weight: 600;
+                        height: 36px;
+                        overflow: hidden;
+                        padding: 0 32px;
+
+                        &:hover {
+                            background: linear-gradient(#79bc64, #578843);
+                        }
+                    }
+                }
+            }
+
+            @include tablet {
+                width: 432px;
+            }
+
+            @include mobile-small {
+                width: 90%;
+            }
+        }
+    }
+
+    @include mobile-small {
+        overflow-y: unset;
+    }
+}
