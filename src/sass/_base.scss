@@ -31,10 +31,6 @@ a[href] {
     text-decoration: none;
 }
 
-input[type=text]:focus:hover {
-    background-color: var(--bg-second);
-}
-
-input[type=button] {
-    cursor: pointer;
+img {
+    user-select: none;
 }
