@@ -1,0 +1,97 @@
+.auth__login {
+    &__footer {
+        padding-top: 20px;
+        font-size: 1.2rem;
+        font-weight: 500;
+
+        &__container {
+            color: #737373;
+            margin: 0 auto;
+            width: 980px;
+
+            &__language {
+                padding-top: 8px;
+
+                @include flex(center, flex-start);
+                flex-wrap: wrap;
+                gap: 10px;
+
+                & > li {
+                    & + & {
+                        padding-left: 10px;
+                    }
+
+                    & a {
+                        color: #737373;
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+
+                    &:last-child {
+                        color: #646b7a;
+                        background-color: #f5f6f7;
+                        height: 20px;
+                        border: 1px solid #ccd0d5;
+                        border-radius: 2px;
+                        padding: 0 8px;
+                        @include flex(center, center);
+                        width: 30px;
+                        cursor: pointer;
+
+                        &:hover {
+                            background-color: #ecf1f7;
+                        }
+                    }
+                }
+
+                @include mobile {
+                    gap: 5px;
+                }
+            }
+
+            &__underline {
+                @include underline();
+                height: 8px;
+                font-size: 0.1rem;
+                margin-bottom: 8px;
+            }
+
+            &__content-info {
+                line-height: 1.6;
+                margin-left: -14px;
+                & > ul {
+                    @include flex(center, flex-start);
+                    flex-wrap: wrap;
+
+                    & > li {
+                        padding-left: 14px;
+
+                        & > a {
+                            color: #737373;
+
+                            &:hover {
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &__copyright {
+                font-size: 1.2rem;
+                margin: 20px 0;
+            }
+        }
+
+        @include mobile {
+            margin: 0 40px;
+            width: auto;
+
+            &__container {
+                width: 100%;
+            }
+        }
+    }
+}

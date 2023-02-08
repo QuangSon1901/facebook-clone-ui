@@ -22,6 +22,7 @@ const images = {
     heartIcon: require('~/assets/images/heart-icon.svg').default,
     likeIcon: require('~/assets/images/like.svg').default,
     likeEmptyIcon: require('~/assets/images/KWPAAg8LKfs.png'),
+    arrowIcon: require('~/assets/images/arrow_icon.png'),
 };
 
 export default images;

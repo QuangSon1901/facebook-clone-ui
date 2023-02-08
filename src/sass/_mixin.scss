@@ -4,6 +4,12 @@
     justify-content: $justify-content;
 }
 
+@mixin underline($width: 1px, $style: solid, $color: var(--border-color)) {
+    border-bottom: $width $style $color;
+    text-align: center;
+    @include flex(center, center);
+}
+
 @mixin mobile-small {
     @media only screen and (max-width: $mobile-small-width) {
         @content;
